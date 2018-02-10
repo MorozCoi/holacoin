@@ -1073,7 +1073,7 @@ uint256 static GetOrphanRoot(const CBlockHeader* pblock)
 
 int64 static GetBlockValue(int nHeight, int64 nFees)
 {
-    int64 nSubsidy = 50 * COIN;
+    int64 nSubsidy = 1 * COIN;
 
     // Subsidy is cut in half every 210000 blocks, which will occur approximately every 4 years
     nSubsidy >>= (nHeight / 210000);
@@ -1081,8 +1081,8 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
     return nSubsidy + nFees;
 }
 
-static const int64 nTargetTimespan = 14 * 24 * 60 * 60; // two weeks
-static const int64 nTargetSpacing = 10 * 60;
+static const int64 nTargetTimespan = 1 * 24 * 60 * 60; // Holacoin: 1 days
+static const int64 nTargetSpacing = 120; // Holacoin: 2 minute blocks
 static const int64 nInterval = nTargetTimespan / nTargetSpacing;
 
 //
@@ -2757,7 +2757,7 @@ bool InitBlockIndex() {
         //   vMerkleTree: 4a5e1e
 
         // Genesis block
-        const char* pszTimestamp = "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks";
+        const char* pszTimestamp = "HEY, i'm create my own cripto ;-)";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -2769,13 +2769,13 @@ bool InitBlockIndex() {
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1231006505;
+        block.nTime    = 1300000000;
         block.nBits    = 0x1d00ffff;
         block.nNonce   = 2083236893;
 
         if (fTestNet)
         {
-            block.nTime    = 1296688602;
+            block.nTime    = 1300000000;
             block.nNonce   = 414098458;
         }
 
