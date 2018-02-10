@@ -588,7 +588,7 @@ public:
      */
     unsigned int GetP2SHSigOpCount(CCoinsViewCache& mapInputs) const;
 
-    /** Amount of foocoins spent by this transaction.
+    /** Amount of holacoins spent by this transaction.
         @return sum of all outputs (note: does not include fees)
      */
     int64 GetValueOut() const
@@ -603,7 +603,7 @@ public:
         return nValueOut;
     }
 
-    /** Amount of foocoins coming in to this transaction
+    /** Amount of holacoins coming in to this transaction
         Note that lightweight clients may not know anything besides the hash of previous transactions,
         so may not be able to calculate this.
 

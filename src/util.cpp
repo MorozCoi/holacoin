@@ -994,7 +994,7 @@ static std::string FormatException(std::exception* pex, const char* pszThread)
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(NULL, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "foocoin";
+    const char* pszModule = "holacoin";
 #endif
     if (pex)
         return strprintf(
@@ -1033,7 +1033,7 @@ boost::filesystem::path GetDefaultDataDir()
     // Windows < Vista: C:\Documents and Settings\Username\Application Data\Foocoin
     // Windows >= Vista: C:\Users\Username\AppData\Roaming\Foocoin
     // Mac: ~/Library/Application Support/Foocoin
-    // Unix: ~/.foocoin
+    // Unix: ~/.holacoin
 #ifdef WIN32
     // Windows
     return GetSpecialFolderPath(CSIDL_APPDATA) / "Foocoin";
@@ -1051,7 +1051,7 @@ boost::filesystem::path GetDefaultDataDir()
     return pathRet / "Foocoin";
 #else
     // Unix
-    return pathRet / ".foocoin";
+    return pathRet / ".holacoin";
 #endif
 #endif
 }
@@ -1092,7 +1092,7 @@ const boost::filesystem::path &GetDataDir(bool fNetSpecific)
 
 boost::filesystem::path GetConfigFile()
 {
-    boost::filesystem::path pathConfigFile(GetArg("-conf", "foocoin.conf"));
+    boost::filesystem::path pathConfigFile(GetArg("-conf", "holacoin.conf"));
     if (!pathConfigFile.is_complete()) pathConfigFile = GetDataDir(false) / pathConfigFile;
     return pathConfigFile;
 }
@@ -1102,7 +1102,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 {
     boost::filesystem::ifstream streamConfig(GetConfigFile());
     if (!streamConfig.good())
-        return; // No foocoin.conf file is OK
+        return; // No holacoin.conf file is OK
 
     // clear path cache after loading config file
     fCachedPath[0] = fCachedPath[1] = false;
@@ -1112,7 +1112,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 
     for (boost::program_options::detail::config_file_iterator it(streamConfig, setOptions), end; it != end; ++it)
     {
-        // Don't overwrite existing settings so command line settings override foocoin.conf
+        // Don't overwrite existing settings so command line settings override holacoin.conf
         string strKey = string("-") + it->string_key;
         if (mapSettingsRet.count(strKey) == 0)
         {
@@ -1126,7 +1126,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 
 boost::filesystem::path GetPidFile()
 {
-    boost::filesystem::path pathPidFile(GetArg("-pid", "foocoind.pid"));
+    boost::filesystem::path pathPidFile(GetArg("-pid", "holacoind.pid"));
     if (!pathPidFile.is_complete()) pathPidFile = GetDataDir() / pathPidFile;
     return pathPidFile;
 }

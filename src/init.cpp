@@ -162,7 +162,7 @@ bool AppInit(int argc, char* argv[])
         //
         // Parameters
         //
-        // If Qt is used, parameters/foocoin.conf are parsed in qt/bitcoin.cpp's main()
+        // If Qt is used, parameters/holacoin.conf are parsed in qt/bitcoin.cpp's main()
         ParseParameters(argc, argv);
         if (!boost::filesystem::is_directory(GetDataDir(false)))
         {
@@ -176,10 +176,10 @@ bool AppInit(int argc, char* argv[])
             // First part of help message is specific to bitcoind / RPC client
             std::string strUsage = _("Foocoin version") + " " + FormatFullVersion() + "\n\n" +
                 _("Usage:") + "\n" +
-                  "  foocoind [options]                     " + "\n" +
-                  "  foocoind [options] <command> [params]  " + _("Send command to -server or foocoind") + "\n" +
-                  "  foocoind [options] help                " + _("List commands") + "\n" +
-                  "  foocoind [options] help <command>      " + _("Get help for a command") + "\n";
+                  "  holacoind [options]                     " + "\n" +
+                  "  holacoind [options] <command> [params]  " + _("Send command to -server or holacoind") + "\n" +
+                  "  holacoind [options] help                " + _("List commands") + "\n" +
+                  "  holacoind [options] help <command>      " + _("Get help for a command") + "\n";
 
             strUsage += "\n" + HelpMessage();
 
@@ -189,7 +189,7 @@ bool AppInit(int argc, char* argv[])
 
         // Command-line RPC
         for (int i = 1; i < argc; i++)
-            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "foocoin:"))
+            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "holacoin:"))
                 fCommandLine = true;
 
         if (fCommandLine)
@@ -251,7 +251,7 @@ int main(int argc, char* argv[])
 {
     bool fRet = false;
 
-    // Connect foocoind signal handlers
+    // Connect holacoind signal handlers
     noui_connect();
 
     fRet = AppInit(argc, argv);
@@ -292,8 +292,8 @@ std::string HelpMessage()
 {
     string strUsage = _("Options:") + "\n" +
         "  -?                     " + _("This help message") + "\n" +
-        "  -conf=<file>           " + _("Specify configuration file (default: foocoin.conf)") + "\n" +
-        "  -pid=<file>            " + _("Specify pid file (default: foocoind.pid)") + "\n" +
+        "  -conf=<file>           " + _("Specify configuration file (default: holacoin.conf)") + "\n" +
+        "  -pid=<file>            " + _("Specify pid file (default: holacoind.pid)") + "\n" +
         "  -gen                   " + _("Generate coins (default: 0)") + "\n" +
         "  -datadir=<dir>         " + _("Specify data directory") + "\n" +
         "  -dbcache=<n>           " + _("Set database cache size in megabytes (default: 25)") + "\n" +
@@ -438,7 +438,7 @@ void ThreadImport(std::vector<boost::filesystem::path> vImportFiles)
     }
 }
 
-/** Initialize foocoin.
+/** Initialize holacoin.
  *  @pre Parameters should be parsed and config file should be read.
  */
 bool AppInit2(boost::thread_group& threadGroup)
@@ -907,7 +907,7 @@ bool AppInit2(boost::thread_group& threadGroup)
         return InitError(_("You need to rebuild the databases using -reindex to change -txindex"));
 
     // as LoadBlockIndex can take several minutes, it's possible the user
-    // requested to kill foocoin-qt during the last operation. If so, exit.
+    // requested to kill holacoin-qt during the last operation. If so, exit.
     // As the program has not fully started yet, Shutdown() is possibly overkill.
     if (fRequestShutdown)
     {

@@ -278,7 +278,7 @@ Eric Young (eay@cryptsoft.com) y UPnP software escrito por Thomas Bernard.</tran
     </message>
     <message>
         <location line="-56"/>
-        <source>Foocoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your foocoins from being stolen by malware infecting your computer.</source>
+        <source>Foocoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your holacoins from being stolen by malware infecting your computer.</source>
         <translation>Foocoin se cerrará para finalizar el proceso de encriptación. Recuerde que encriptar su billetera no protegera completatamente sus bitcoins de ser robados por malware que infecte su computador</translation>
     </message>
     <message>
@@ -423,12 +423,12 @@ Eric Young (eay@cryptsoft.com) y UPnP software escrito por Thomas Bernard.</tran
     <message>
         <location line="-347"/>
         <source>Send coins to a Foocoin address</source>
-        <translation>Enviar monedas a una dirección foocoin</translation>
+        <translation>Enviar monedas a una dirección holacoin</translation>
     </message>
     <message>
         <location line="+49"/>
         <source>Modify configuration options for Foocoin</source>
-        <translation>Modifica las opciones de configuración de foocoin</translation>
+        <translation>Modifica las opciones de configuración de holacoin</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -1072,7 +1072,7 @@ Dirección: %4</translation>
     <name>PaymentServer</name>
     <message>
         <location filename="../paymentserver.cpp" line="+107"/>
-        <source>Cannot start foocoin: click-to-pay handler</source>
+        <source>Cannot start holacoin: click-to-pay handler</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2200,8 +2200,8 @@ Dirección: %4</translation>
     </message>
     <message>
         <location line="-29"/>
-        <source>Send command to -server or foocoind</source>
-        <translation>Envia comando a foocoin lanzado con -server u bitcoind
+        <source>Send command to -server or holacoind</source>
+        <translation>Envia comando a holacoin lanzado con -server u bitcoind
 </translation>
     </message>
     <message>
@@ -2224,14 +2224,14 @@ Dirección: %4</translation>
     </message>
     <message>
         <location line="+24"/>
-        <source>Specify configuration file (default: foocoin.conf)</source>
-        <translation>Especifica archivo de configuración (predeterminado: foocoin.conf)
+        <source>Specify configuration file (default: holacoin.conf)</source>
+        <translation>Especifica archivo de configuración (predeterminado: holacoin.conf)
 </translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Specify pid file (default: foocoind.pid)</source>
-        <translation>Especifica archivo pid (predeterminado: foocoin.pid)
+        <source>Specify pid file (default: holacoind.pid)</source>
+        <translation>Especifica archivo pid (predeterminado: holacoin.pid)
 </translation>
     </message>
     <message>
@@ -2313,7 +2313,7 @@ Dirección: %4</translation>
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=foocoinrpc
+rpcuser=holacoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.

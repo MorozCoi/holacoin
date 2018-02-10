@@ -1,5 +1,5 @@
 /*
- * Qt4 foocoin GUI.
+ * Qt4 holacoin GUI.
  *
  * W.J. van der Laan 2011-2012
  * The Foocoin developers 2011-2013
@@ -44,7 +44,7 @@ public:
     */
     void setClientModel(ClientModel *clientModel);
     /** Set the wallet model.
-        The wallet model represents a foocoin wallet, and offers access to the list of transactions, address book and sending
+        The wallet model represents a holacoin wallet, and offers access to the list of transactions, address book and sending
         functionality.
     */
     void setWalletModel(WalletModel *walletModel);

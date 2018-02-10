@@ -79,8 +79,8 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
 
 bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
-    // return if URI is not valid or is no foocoin URI
-    if(!uri.isValid() || uri.scheme() != QString("foocoin"))
+    // return if URI is not valid or is no holacoin URI
+    if(!uri.isValid() || uri.scheme() != QString("holacoin"))
         return false;
 
     SendCoinsRecipient rv;
@@ -125,13 +125,13 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 
 bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert foocoin:// to foocoin:
+    // Convert holacoin:// to holacoin:
     //
-    //    Cannot handle this later, because foocoin:// will cause Qt to see the part after // as host,
+    //    Cannot handle this later, because holacoin:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("foocoin://"))
+    if(uri.startsWith("holacoin://"))
     {
-        uri.replace(0, 10, "foocoin:");
+        uri.replace(0, 10, "holacoin:");
     }
     QUrl uriInstance(uri);
     return parseBitcoinURI(uriInstance, out);
@@ -359,7 +359,7 @@ boost::filesystem::path static GetAutostartDir()
 
 boost::filesystem::path static GetAutostartFilePath()
 {
-    return GetAutostartDir() / "foocoin.desktop";
+    return GetAutostartDir() / "holacoin.desktop";
 }
 
 bool GetStartOnSystemStartup()
@@ -397,7 +397,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         boost::filesystem::ofstream optionFile(GetAutostartFilePath(), std::ios_base::out|std::ios_base::trunc);
         if (!optionFile.good())
             return false;
-        // Write a foocoin.desktop file to the autostart directory:
+        // Write a holacoin.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
         optionFile << "Name=Foocoin\n";
@@ -424,7 +424,7 @@ HelpMessageBox::HelpMessageBox(QWidget *parent) :
     header = tr("Foocoin-Qt") + " " + tr("version") + " " +
         QString::fromStdString(FormatFullVersion()) + "\n\n" +
         tr("Usage:") + "\n" +
-        "  foocoin-qt [" + tr("command-line options") + "]                     " + "\n";
+        "  holacoin-qt [" + tr("command-line options") + "]                     " + "\n";
 
     coreOptions = QString::fromStdString(HelpMessage());
 
